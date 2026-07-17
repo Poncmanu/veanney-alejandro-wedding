@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Veanney & Alejandro</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    background:#0F172A;
+    color:white;
+    font-family:Georgia, serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    text-align:center;
+}
+
+.container{
+
+    width:90%;
+    max-width:700px;
+
+}
+
+h1{
+
+    font-size:56px;
+    margin-bottom:10px;
+}
+
+h2{
+
+    font-weight:normal;
+    color:#d4af37;
+    margin-bottom:40px;
+
+}
+
+#countdown{
+
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    margin:40px 0;
+
+}
+
+.box{
+
+    background:white;
+    color:#0F172A;
+    padding:20px;
+    border-radius:15px;
+    min-width:90px;
+
+}
+
+.number{
+
+    font-size:34px;
+    font-weight:bold;
+
+}
+
+.label{
+
+    font-size:14px;
+}
+
+button{
+
+    margin-top:40px;
+    background:#d4af37;
+    color:black;
+    border:none;
+    padding:18px 35px;
+    border-radius:40px;
+    cursor:pointer;
+    font-size:18px;
+
+}
+
+button:hover{
+
+opacity:.9;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Veanney</h1>
+
+<h1>&</h1>
+
+<h1>Alejandro</h1>
+
+<h2>11 Septiembre 2026</h2>
+
+<div id="countdown">
+
+<div class="box">
+
+<div id="days" class="number">0</div>
+
+<div class="label">Días</div>
+
+</div>
+
+<div class="box">
+
+<div id="hours" class="number">0</div>
+
+<div class="label">Horas</div>
+
+</div>
+
+<div class="box">
+
+<div id="minutes" class="number">0</div>
+
+<div class="label">Minutos</div>
+
+</div>
+
+<div class="box">
+
+<div id="seconds" class="number">0</div>
+
+<div class="label">Segundos</div>
+
+</div>
+
+</div>
+
+<button>
+
+Confirmar asistencia
+
+</button>
+
+</div>
+
+<script>
+
+const weddingDate=new Date("September 11, 2026 19:00:00").getTime();
+
+setInterval(function(){
+
+const now=new Date().getTime();
+
+const distance=weddingDate-now;
+
+const days=Math.floor(distance/(1000*60*60*24));
+
+const hours=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+
+const minutes=Math.floor((distance%(1000*60*60))/(1000*60));
+
+const seconds=Math.floor((distance%(1000*60))/1000);
+
+document.getElementById("days").innerHTML=days;
+document.getElementById("hours").innerHTML=hours;
+document.getElementById("minutes").innerHTML=minutes;
+document.getElementById("seconds").innerHTML=seconds;
+
+},1000);
+
+</script>
+
+</body>
+
+</html>
