@@ -33,3 +33,36 @@ function updateCountdown(){
 updateCountdown();
 
 setInterval(updateCountdown,1000);
+
+// ===== RSVP =====
+
+const guestChecks = document.querySelectorAll('#guestList input[type="checkbox"]');
+const guestCounter = document.getElementById('guestCounter');
+const confirmButton = document.getElementById('confirmButton');
+
+function updateGuestCounter() {
+
+    const total = guestChecks.length;
+    const selected = [...guestChecks].filter(c => c.checked).length;
+
+    guestCounter.textContent = `${selected} de ${total} invitados seleccionados`;
+
+    if (selected === 0) {
+        confirmButton.disabled = true;
+        confirmButton.textContent = 'Selecciona al menos un invitado';
+        confirmButton.style.opacity = '0.5';
+        confirmButton.style.cursor = 'not-allowed';
+    } else {
+        confirmButton.disabled = false;
+        confirmButton.textContent = 'Confirmar asistencia';
+        confirmButton.style.opacity = '1';
+        confirmButton.style.cursor = 'pointer';
+    }
+
+}
+
+guestChecks.forEach(check => {
+    check.addEventListener('change', updateGuestCounter);
+});
+
+updateGuestCounter();
