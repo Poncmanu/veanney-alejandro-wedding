@@ -326,3 +326,150 @@ letter-spacing:2px;
 margin-bottom:30px;
 
 }
+.details{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+border:2px solid #b88a3d;
+
+border-radius:18px;
+
+margin-top:35px;
+
+}
+
+.details>div{
+
+display:flex;
+
+align-items:center;
+
+gap:18px;
+
+padding:25px;
+
+}
+
+.details>div:first-child{
+
+border-right:1px solid #b88a3d;
+
+}
+
+.iconBig{
+
+font-size:42px;
+
+}
+
+.details h4{
+
+margin:0;
+
+color:#d39a43;
+
+font-family:Cinzel;
+
+}
+
+.details p{
+
+margin:4px 0 0;
+
+color:white;
+
+}
+
+.gift{
+
+text-align:center;
+
+margin-top:45px;
+
+padding:0 15px;
+
+}
+
+.gift h2{
+
+font-family:Great Vibes;
+
+font-size:58px;
+
+font-weight:400;
+
+color:#d39a43;
+
+margin-bottom:20px;
+
+}
+
+.gift p{
+
+color:white;
+
+line-height:1.8;
+
+font-size:18px;
+
+}
+
+.thanks{
+
+margin-top:20px;
+
+font-family:Great Vibes;
+
+font-size:34px;
+
+color:#d39a43;
+
+}
+
+.actions{
+
+text-align:center;
+
+margin:45px 0;
+
+}
+
+.confirm{
+
+display:inline-block;
+
+padding:18px 40px;
+
+background:#c9933d;
+
+color:black;
+
+text-decoration:none;
+
+font-weight:bold;
+
+font-size:22px;
+
+border-radius:50px;
+
+transition:.3s;
+
+}
+
+.confirm:hover{
+
+transform:scale(1.05);
+
+}
+
+.deadline{
+
+margin-top:25px;
+
+font-size:20px;
+
+color:white;
+
+}
