@@ -718,27 +718,6 @@ section:not(:last-child){
 
 }
 
-section:not(:last-child)::after{
-
-    content:"";
-
-    display:block;
-
-    width:120px;
-
-    height:1px;
-
-    margin:40px auto 0;
-
-    background:linear-gradient(
-        90deg,
-        transparent,
-        rgba(200,155,77,.65),
-        transparent
-    );
-
-}
-
 /*==============================
     EFECTOS
 ==============================*/
@@ -1067,26 +1046,6 @@ section:not(:last-child){
 
 }
 
-section:not(:last-child)::after{
-
-    content:"";
-
-    display:block;
-
-    width:120px;
-
-    height:1px;
-
-    margin:40px auto 0;
-
-    background:linear-gradient(
-        90deg,
-        transparent,
-        rgba(200,155,77,.65),
-        transparent
-    );
-
-}
 
 /*==============================
     EFECTOS
