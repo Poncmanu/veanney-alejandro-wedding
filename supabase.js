@@ -6,13 +6,26 @@ const supabaseClient = window.supabase.createClient(
 
 // Obtener el código de la URL
 function obtenerCodigoInvitacion() {
-
     const params = new URLSearchParams(window.location.search);
-
     return params.get("codigo");
+}
+
+// Buscar la invitación
+async function cargarInvitacion() {
+
+    const codigo = obtenerCodigoInvitacion();
+
+    console.log("Código recibido:", codigo);
+
+    const { data, error } = await supabaseClient
+        .from("invitaciones")
+        .select("*")
+        .eq("codigo", codigo)
+        .single();
+
+    console.log("Invitación:", data);
+    console.log("Error:", error);
 
 }
 
-const codigo = obtenerCodigoInvitacion();
-
-console.log("Código recibido:", codigo);
+cargarInvitacion();
