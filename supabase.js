@@ -1,5 +1,5 @@
 // Crear cliente de Supabase
-const supabase = window.supabase.createClient(
+const supabaseClient = window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_ANON_KEY
 );
@@ -7,7 +7,7 @@ const supabase = window.supabase.createClient(
 // Función de prueba
 async function probarConexion() {
 
-    const { data, error } = await supabase
+    const { data, error } = await supabaseClient
         .from('invitaciones')
         .select('*');
 
