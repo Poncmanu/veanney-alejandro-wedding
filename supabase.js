@@ -4,16 +4,15 @@ const supabaseClient = window.supabase.createClient(
     SUPABASE_ANON_KEY
 );
 
-// Función de prueba
-async function probarConexion() {
+// Obtener el código de la URL
+function obtenerCodigoInvitacion() {
 
-    const { data, error } = await supabaseClient
-        .from('invitaciones')
-        .select('*');
+    const params = new URLSearchParams(window.location.search);
 
-    console.log("DATA:", data);
-    console.log("ERROR:", error);
+    return params.get("codigo");
 
 }
 
-probarConexion();
+const codigo = obtenerCodigoInvitacion();
+
+console.log("Código recibido:", codigo);
