@@ -1423,3 +1423,66 @@ COUNTDOWN
     background:rgba(212,175,55,.05);
 
 }
+/* ===========================
+   CARTA RSVP
+=========================== */
+
+.section-divider{
+
+    margin:45px auto;
+
+    font-size:2rem;
+
+    color:var(--gold);
+
+    text-align:center;
+
+    opacity:.85;
+
+    letter-spacing:8px;
+
+}
+
+.confirmation-highlight{
+
+    color:#ffffff;
+
+    font-size:1.15rem;
+
+    font-weight:600;
+
+    font-style:italic;
+
+    margin:35px auto;
+
+    max-width:650px;
+
+}
+
+.confirmation-signature{
+
+    margin-top:45px;
+
+    margin-bottom:8px;
+
+    font-style:italic;
+
+    color:var(--gold);
+
+    opacity:.9;
+
+}
+
+.confirmation-names{
+
+    font-family:var(--title);
+
+    font-size:2rem;
+
+    color:var(--gold);
+
+    margin-top:0;
+
+    letter-spacing:1px;
+
+}
