@@ -97,12 +97,18 @@ async function guardarConfirmacion() {
 
         const confirmado = checkbox.checked;
 
-        const { error } = await supabaseClient
-            .from("personas")
-            .update({
-                confirmado: confirmado
-            })
-            .eq("id", id);
+const { data, error } = await supabaseClient
+    .from("personas")
+    .update({
+        confirmado: confirmado
+    })
+    .eq("id", id)
+    .select();
+
+console.log("ID:", id);
+console.log("Confirmado:", confirmado);
+console.log("Resultado:", data);
+console.log("Error:", error);
 
         if (error) {
 
