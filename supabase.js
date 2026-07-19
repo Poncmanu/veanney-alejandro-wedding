@@ -10,6 +10,30 @@ function obtenerCodigoInvitacion() {
     return params.get("codigo");
 }
 
+function mostrarInvitados(personas) {
+
+    const guestList = document.getElementById("guestList");
+
+    guestList.innerHTML = "";
+
+    personas.forEach(persona => {
+
+        const menuInfantil = persona.tipo_menu === "INFANTIL"
+            ? `<span class="menu-tag">Menú infantil</span>`
+            : "";
+
+        guestList.innerHTML += `
+            <label class="guest-item">
+                <input type="checkbox" data-id="${persona.id}">
+                <span>${persona.nombre}</span>
+                ${menuInfantil}
+            </label>
+        `;
+
+    });
+
+}
+
 // Buscar la invitación
 async function cargarInvitacion() {
 
@@ -36,7 +60,9 @@ async function cargarInvitacion() {
 
     console.log("Personas:", personas);
     console.log("Error personas:", errorPersonas);
-
+    if (!errorPersonas) {
+    mostrarInvitados(personas);
 }
+} 
 
 cargarInvitacion();
