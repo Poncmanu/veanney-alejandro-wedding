@@ -26,6 +26,17 @@ async function cargarInvitacion() {
     console.log("Invitación:", data);
     console.log("Error:", error);
 
+    if (error) return;
+
+    const { data: personas, error: errorPersonas } = await supabaseClient
+        .from("personas")
+        .select("*")
+        .eq("invitacion_id", data.id)
+        .order("orden");
+
+    console.log("Personas:", personas);
+    console.log("Error personas:", errorPersonas);
+
 }
 
 cargarInvitacion();
