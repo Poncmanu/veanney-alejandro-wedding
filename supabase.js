@@ -141,6 +141,34 @@ async function guardarConfirmacion() {
 
     }
 
-    alert("¡Muchas gracias! Hemos recibido su confirmación.");
+    mostrarCartaConfirmacion();
+
+}
+
+function mostrarCartaConfirmacion() {
+
+    const rsvpSection = document.getElementById("rsvp");
+
+    rsvpSection.innerHTML = `
+        <div class="rsvp-card">
+
+            <h2>¡Muchas gracias!</h2>
+
+            <p>
+                Hemos recibido correctamente su confirmación.
+            </p>
+
+            <p>
+                Muy pronto nos veremos para celebrar juntos este día tan especial.
+            </p>
+
+            <p>
+                Con cariño,
+            </p>
+
+            <strong>Ivonne & Alejandro</strong>
+
+        </div>
+    `;
 
 }
