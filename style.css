@@ -1356,3 +1356,70 @@ COUNTDOWN
     box-shadow:0 8px 20px rgba(212,175,55,.35);
 
 }
+/* ===========================
+   CONFIRMACIÓN
+=========================== */
+
+.confirmation-intro{
+
+    max-width:700px;
+
+    margin:90px auto 60px;
+
+    padding:0 28px;
+
+    text-align:center;
+
+}
+
+.confirmation-intro h2{
+
+    font-family:var(--title);
+
+    font-size:2rem;
+
+    color:var(--gold);
+
+    margin-bottom:24px;
+
+}
+
+.confirmation-intro p{
+
+    color:var(--text);
+
+    font-size:1.08rem;
+
+    line-height:1.9;
+
+    margin-bottom:22px;
+
+}
+
+.confirmation-intro strong{
+
+    color:#ffffff;
+
+    font-weight:600;
+
+}
+
+.confirmation-deadline{
+
+    display:inline-block;
+
+    margin-top:10px;
+
+    padding:14px 26px;
+
+    border:1px solid rgba(212,175,55,.35);
+
+    border-radius:40px;
+
+    color:var(--gold);
+
+    font-weight:600;
+
+    background:rgba(212,175,55,.05);
+
+}
