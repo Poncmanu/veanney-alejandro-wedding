@@ -14,7 +14,7 @@ function mostrarInvitados(personas) {
 
     const guestList = document.getElementById("guestList");
 
-    guestList.innerHTML = "";
+    let html = "";
 
     personas.forEach(persona => {
 
@@ -22,7 +22,7 @@ function mostrarInvitados(personas) {
             ? `<span class="menu-tag">Menú infantil</span>`
             : "";
 
-        guestList.innerHTML += `
+        html += `
             <label class="guest-item">
                 <input type="checkbox" data-id="${persona.id}">
                 <span>${persona.nombre}</span>
@@ -32,8 +32,15 @@ function mostrarInvitados(personas) {
 
     });
 
-}
+    guestList.innerHTML = html;
 
+    guestList.querySelectorAll('input[type="checkbox"]').forEach(check => {
+        check.addEventListener('change', updateGuestCounter);
+    });
+
+    updateGuestCounter();
+
+}
 // Buscar la invitación
 async function cargarInvitacion() {
 
