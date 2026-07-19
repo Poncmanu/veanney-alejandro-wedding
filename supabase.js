@@ -4,6 +4,7 @@ const supabaseClient = window.supabase.createClient(
     SUPABASE_ANON_KEY
 );
 let invitacionActual = null;
+let personasActuales = [];
 // Obtener el código de la URL
 function obtenerCodigoInvitacion() {
     const params = new URLSearchParams(window.location.search);
@@ -82,6 +83,8 @@ document.getElementById("rsvpMessage").innerHTML =
 
     console.log("Personas:", personas);
     console.log("Error personas:", errorPersonas);
+
+    personasActuales = personas;
     if (!errorPersonas) {
     mostrarInvitados(personas);
 }
@@ -97,6 +100,12 @@ async function guardarConfirmacion() {
 
         const id = Number(checkbox.dataset.id);
         const confirmado = checkbox.checked;
+
+        const persona = personasActuales.find(p => p.id === id);
+
+if (persona) {
+    persona.confirmado = confirmado;
+}
 
         console.log("Actualizando:", id, confirmado);
 
@@ -141,25 +150,96 @@ async function guardarConfirmacion() {
 
     }
 
-    mostrarCartaConfirmacion();
+   mostrarCartaConfirmacion(personasActuales);
 
 }
 
-function mostrarCartaConfirmacion() {
+function mostrarCartaConfirmacion(personas) {
 
     const rsvpSection = document.getElementById("rsvp");
+
+    const asistentes = personas.filter(p => p.confirmado);
+    const noAsistentes = personas.filter(p => !p.confirmado);
+
+    let htmlAsisten = "";
+    let htmlNoAsisten = "";
+
+    asistentes.forEach(persona => {
+        htmlAsisten += `<li>${persona.nombre}</li>`;
+    });
+
+    noAsistentes.forEach(persona => {
+        htmlNoAsisten += `<li>${persona.nombre}</li>`;
+    });
+
+    let mensajePrincipal = "";
+    let mensajeFinal = "";
+
+    if (asistentes.length === personas.length) {
+
+        mensajePrincipal =
+            "Nos llena de alegría saber que podremos compartir este día tan especial con ustedes.";
+
+        mensajeFinal =
+            "¡Nos vemos el 11 de septiembre!";
+
+    } else if (asistentes.length === 0) {
+
+        mensajePrincipal =
+            "Muchas gracias por responder nuestra invitación. Aunque en esta ocasión no puedan acompañarnos, les enviamos un fuerte abrazo y nuestros mejores deseos.";
+
+        mensajeFinal = "";
+
+    } else {
+
+        mensajePrincipal =
+            "Muchas gracias por responder nuestra invitación. Hemos recibido correctamente su confirmación.";
+
+        mensajeFinal =
+            "Nos hará muy felices compartir este día con quienes podrán acompañarnos.";
+    }
 
     rsvpSection.innerHTML = `
         <div class="rsvp-card">
 
             <h2>¡Muchas gracias!</h2>
 
-            <p>
-                Hemos recibido correctamente su confirmación.
-            </p>
+            <p>${mensajePrincipal}</p>
 
-            <p>
-                Muy pronto nos veremos para celebrar juntos este día tan especial.
+            ${
+                asistentes.length > 0
+                ? `
+                <h3>Nos acompañarán</h3>
+                <ul>
+                    ${htmlAsisten}
+                </ul>
+                `
+                : ""
+            }
+
+            ${
+                noAsistentes.length > 0 && asistentes.length > 0
+                ? `
+                <h3>En esta ocasión no podrán acompañarnos</h3>
+                <ul>
+                    ${htmlNoAsisten}
+                </ul>
+                `
+                : ""
+            }
+
+            ${
+                mensajeFinal
+                ? `<p>${mensajeFinal}</p>`
+                : ""
+            }
+
+            <hr>
+
+            <p style="font-size:.9rem;">
+                Si detectan algún error en su confirmación o necesitan realizar algún cambio,
+                por favor comuníquense con nosotros antes del
+                <strong>15 de agosto de 2026.</strong>
             </p>
 
             <p>
