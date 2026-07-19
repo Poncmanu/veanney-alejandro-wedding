@@ -1364,7 +1364,7 @@ COUNTDOWN
 
     max-width:700px;
 
-    margin:90px auto 60px;
+    margin:55px auto 35px;
 
     padding:0 28px;
 
@@ -1429,7 +1429,7 @@ COUNTDOWN
 
 .section-divider{
 
-    margin:45px auto;
+    margin:28px auto;
 
     font-size:2rem;
 
@@ -1461,7 +1461,7 @@ COUNTDOWN
 
 .confirmation-signature{
 
-    margin-top:45px;
+    margin-top:25px;
 
     margin-bottom:8px;
 
@@ -1475,14 +1475,18 @@ COUNTDOWN
 
 .confirmation-names{
 
+    margin-bottom:20px;
+
     font-family:var(--title);
 
-    font-size:2rem;
+    font-size:2.2rem;
 
     color:var(--gold);
 
+    letter-spacing:2px;
+
     margin-top:0;
 
-    letter-spacing:1px;
+    margin-bottom:20px;
 
 }
