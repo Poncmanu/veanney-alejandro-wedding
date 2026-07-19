@@ -47,10 +47,16 @@ async function cargarInvitacion() {
         .eq("codigo", codigo)
         .single();
 
-    console.log("Invitación:", data);
-    console.log("Error:", error);
+console.log("Invitación:", data);
+console.log("Error:", error);
 
-    if (error) return;
+if (error) return;
+
+document.getElementById("rsvpGreeting").textContent =
+    `¡Hola, ${data.nombre_invitacion}!`;
+
+document.getElementById("rsvpMessage").innerHTML =
+    `Tenemos reservados <strong>${data.lugares} lugares para ustedes.</strong>`;
 
     const { data: personas, error: errorPersonas } = await supabaseClient
         .from("personas")
