@@ -91,19 +91,26 @@ async function guardarConfirmacion() {
 
     const checkboxes = document.querySelectorAll("#guestList input[type='checkbox']");
 
-    for (const checkbox of checkboxes) {
+for (const checkbox of checkboxes) {
 
-        const id = checkbox.dataset.id;
+    const id = checkbox.dataset.id;
 
-        const confirmado = checkbox.checked;
+    const confirmado = checkbox.checked;
 
-const { data, error } = await supabaseClient
-    .from("personas")
-    .update({
-        confirmado: confirmado
-    })
-    .eq("id", id)
-    .select();
+    console.log("Actualizando:", id, confirmado);
+
+    const { data, error } = await supabaseClient
+        .from("personas")
+        .update({
+            confirmado: confirmado
+        })
+        .eq("id", id)
+        .select();
+
+    console.log(data);
+    console.log(error);
+
+}
 
 console.log("ID:", id);
 console.log("Confirmado:", confirmado);
