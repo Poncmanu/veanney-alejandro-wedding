@@ -100,26 +100,21 @@ async function guardarConfirmacion() {
 
         console.log("Actualizando:", id, confirmado);
 
-        const { data, error } = await supabaseClient
-            .from("personas")
-            .update({
-                confirmado: confirmado
-            })
-            .eq("id", id)
-            .select();
+       const { error: errorInvitacion } = await supabaseClient
+        .from("invitaciones")
+        .update({
+            estado: true,
+            fecha_confirmacion: new Date().toISOString()
+        })
+        .eq("id", invitacionActual.id);
 
-        console.log("Resultado:", data);
-        console.log("Error:", error);
+    if (errorInvitacion) {
 
-        if (error) {
+        console.error(errorInvitacion);
 
-            console.error(error);
+        alert("Se actualizaron las personas, pero ocurrió un error al guardar la invitación.");
 
-            alert("Ocurrió un error al guardar la confirmación.");
-
-            return;
-
-        }
+        return;
 
     }
 
