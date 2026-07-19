@@ -42,6 +42,7 @@ const confirmButton = document.getElementById('confirmButton');
 
 function updateGuestCounter() {
 
+    const guestChecks = document.querySelectorAll('#guestList input[type="checkbox"]');
     const total = guestChecks.length;
     const selected = [...guestChecks].filter(c => c.checked).length;
 
@@ -75,8 +76,5 @@ if (selected === 0) {
 
 }
 
-guestChecks.forEach(check => {
-    check.addEventListener('change', updateGuestCounter);
-});
 
 updateGuestCounter();
