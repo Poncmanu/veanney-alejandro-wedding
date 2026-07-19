@@ -43,6 +43,9 @@ html += `
     });
 
     updateGuestCounter();
+document
+    .getElementById("confirmButton")
+    .addEventListener("click", guardarConfirmacion);
 
 }
 // Buscar la invitación
@@ -83,3 +86,36 @@ document.getElementById("rsvpMessage").innerHTML =
 } 
 
 cargarInvitacion();
+
+async function guardarConfirmacion() {
+
+    const checkboxes = document.querySelectorAll("#guestList input[type='checkbox']");
+
+    for (const checkbox of checkboxes) {
+
+        const id = checkbox.dataset.id;
+
+        const confirmado = checkbox.checked;
+
+        const { error } = await supabaseClient
+            .from("personas")
+            .update({
+                confirmado: confirmado
+            })
+            .eq("id", id);
+
+        if (error) {
+
+            console.error(error);
+
+            alert("Ocurrió un error al guardar la confirmación.");
+
+            return;
+
+        }
+
+    }
+
+    alert("¡Muchas gracias! Hemos recibido su confirmación.");
+
+}
