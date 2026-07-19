@@ -22,13 +22,17 @@ function mostrarInvitados(personas) {
             ? `<span class="menu-tag">Menú infantil</span>`
             : "";
 
-        html += `
-            <label class="guest-item">
-                <input type="checkbox" data-id="${persona.id}">
-                <span>${persona.nombre}</span>
-                ${menuInfantil}
-            </label>
-        `;
+html += `
+    <label class="guest-item">
+        <input
+            type="checkbox"
+            data-id="${persona.id}"
+            ${persona.confirmado ? "checked" : ""}
+        >
+        <span>${persona.nombre}</span>
+        ${menuInfantil}
+    </label>
+`;
 
     });
 
