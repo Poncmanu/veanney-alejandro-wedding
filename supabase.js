@@ -3,7 +3,7 @@ const supabaseClient = window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_ANON_KEY
 );
-
+let invitacionActual = null;
 // Obtener el código de la URL
 function obtenerCodigoInvitacion() {
     const params = new URLSearchParams(window.location.search);
@@ -65,6 +65,8 @@ console.log("Invitación:", data);
 console.log("Error:", error);
 
 if (error) return;
+
+    invitacionActual = data;
 
 document.getElementById("rsvpGreeting").textContent =
     `¡Hola, ${data.nombre_invitacion}!`;
