@@ -187,7 +187,7 @@ const htmlNoAsisten = noAsistentes
     if (asistentes.length === personas.length) {
 
         mensajePrincipal =
-            "Nos llena de alegría saber que podremos compartir este día tan especial con ustedes.";
+    "Nos llena de alegría saber que compartiremos este día tan especial con quienes nos acompañarán.";
 
         mensajeFinal =
             "¡Nos vemos el 11 de septiembre!";
@@ -195,17 +195,17 @@ const htmlNoAsisten = noAsistentes
     } else if (asistentes.length === 0) {
 
         mensajePrincipal =
-            "Aunque en esta ocasión no puedan acompañarnos, les enviamos un fuerte abrazo y nuestros mejores deseos.";
+    "Aunque en esta ocasión no sea posible acompañarnos, les enviamos un fuerte abrazo y nuestros mejores deseos.";
 
         mensajeFinal = "";
 
 } else {
 
     mensajePrincipal =
-        "Será un gusto recibir a quienes podrán acompañarnos y agradecemos mucho haber recibido su respuesta.";
+    "Será un gusto recibir a quienes nos acompañarán y agradecemos mucho haber recibido su respuesta.";
 
     mensajeFinal =
-        "En las próximas semanas nos pondremos en contacto con ustedes para hacerles llegar su pase de acceso y compartirles los últimos detalles de nuestra celebración.";
+    "En las próximas semanas nos comunicaremos para hacer llegar el acceso al evento y compartir los últimos detalles de nuestra celebración.";
 }
 
     rsvpSection.innerHTML = `
@@ -218,7 +218,7 @@ const htmlNoAsisten = noAsistentes
             ${
                 asistentes.length > 0
                 ? `
-                <h3>Nos acompañarán</h3>
+                <h3>Asistencia confirmada</h3>
 <div class="guestNames">
     ${htmlAsisten}
 </div>
@@ -229,7 +229,7 @@ const htmlNoAsisten = noAsistentes
             ${
                 noAsistentes.length > 0 && asistentes.length > 0
                 ? `
-                <h3>En esta ocasión no podrán acompañarnos</h3>
+                <h3>No podrán asistir</h3>
 <div class="guestNames">
     ${htmlNoAsisten}
 </div>
