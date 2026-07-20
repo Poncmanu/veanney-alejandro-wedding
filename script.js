@@ -46,13 +46,14 @@ function updateGuestCounter() {
     const total = guestChecks.length;
     const selected = [...guestChecks].filter(c => c.checked).length;
 
-    guestCounter.textContent = `${selected} de ${total} invitados seleccionados`;
+    guestCounter.textContent =
+    `${selected} de ${total} ${total === 1 ? "lugar confirmado" : "lugares confirmados"}`;
 
 if (selected === 0) {
 
     confirmButton.disabled = false;
 
-    confirmButton.textContent = 'Confirmar que no podremos asistir';
+    confirmButton.textContent = 'Confirmar respuesta';
 
     confirmButton.style.opacity = '1';
 
