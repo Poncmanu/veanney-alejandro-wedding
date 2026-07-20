@@ -191,8 +191,8 @@ const htmlNoAsisten = noAsistentes
 
     } else {
 
-        mensajePrincipal =
-            "Muchas gracias por responder nuestra invitación. Hemos recibido correctamente su confirmación.";
+mensajePrincipal =
+    "Muchas gracias por responder nuestra invitación. Será un gusto recibir a quienes podrán acompañarnos y agradecemos mucho haber recibido su respuesta.";
 
         mensajeFinal =
             "Nos hará muy felices compartir este día con quienes podrán acompañarnos.";
@@ -201,7 +201,7 @@ const htmlNoAsisten = noAsistentes
     rsvpSection.innerHTML = `
         <div class="rsvp-card">
 
-            <h2>¡Muchas gracias!</h2>
+            <h2>Muchas gracias por responder nuestra invitación</h2>
 
             <p>${mensajePrincipal}</p>
 
@@ -209,9 +209,9 @@ const htmlNoAsisten = noAsistentes
                 asistentes.length > 0
                 ? `
                 <h3>Nos acompañarán</h3>
-                <ul>
-                    ${htmlAsisten}
-                </ul>
+<div class="guestNames">
+    ${htmlAsisten}
+</div>
                 `
                 : ""
             }
@@ -220,9 +220,9 @@ const htmlNoAsisten = noAsistentes
                 noAsistentes.length > 0 && asistentes.length > 0
                 ? `
                 <h3>En esta ocasión no podrán acompañarnos</h3>
-                <ul>
-                    ${htmlNoAsisten}
-                </ul>
+<div class="guestNames">
+    ${htmlNoAsisten}
+</div>
                 `
                 : ""
             }
@@ -233,13 +233,17 @@ const htmlNoAsisten = noAsistentes
                 : ""
             }
 
-            <hr>
+<div class="confirm-note">
 
-            <p style="font-size:.9rem;">
-                Si detectan algún error en su confirmación o necesitan realizar algún cambio,
-                por favor comuníquense con nosotros antes del
-                <strong>15 de agosto de 2026.</strong>
-            </p>
+    <strong>¿Necesitas modificar tu respuesta?</strong>
+
+    <br><br>
+
+    Si detectaste algún error o necesitas realizar algún cambio,
+    comunícate con nosotros antes del
+    <strong>15 de agosto de 2026.</strong>
+
+</div>
 
             <p>
                 Con cariño,
