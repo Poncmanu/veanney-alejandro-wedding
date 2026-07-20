@@ -272,9 +272,9 @@ const htmlNoAsisten = noAsistentes
 
     <br><br>
 
-    Si detectaste algún error o necesitas realizar algún cambio,
+    Si necesitas corregir o modificar tu confirmación,
     comunícate con nosotros antes del
-    <strong>08 de agosto de 2026.</strong>
+    <strong>${formatearFecha(invitacionActual.fecha_limite_confirmacion)}</strong>
 
 </div>
 
