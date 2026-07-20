@@ -1494,3 +1494,57 @@ COUNTDOWN
     margin-bottom:20px;
 
 }
+.rsvp-card {
+    text-align: center;
+    padding: 30px;
+}
+
+.rsvp-card h2 {
+    color: #c8a74e;
+    margin-bottom: 25px;
+}
+
+.rsvp-card h3 {
+    color: #c8a74e;
+    font-size: 1.3rem;
+    margin-top: 35px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.rsvp-card p {
+    color: #f5f5f5;
+    line-height: 1.8;
+    margin-bottom: 18px;
+}
+
+.rsvp-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0 30px 0;
+}
+
+.rsvp-card li {
+    color: #ffffff;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    letter-spacing: .5px;
+}
+
+.rsvp-card strong {
+    color: #ffffff;
+}
+
+.confirm-note{
+    margin-top:35px;
+    padding:18px;
+    border:1px solid rgba(200,167,78,.4);
+    border-radius:12px;
+    font-size:.95rem;
+    color:#d9d9d9;
+    line-height:1.7;
+}
+
+.confirm-note strong{
+    color:#c8a74e;
+}
