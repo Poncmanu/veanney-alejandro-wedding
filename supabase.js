@@ -13,7 +13,11 @@ function obtenerCodigoInvitacion() {
 
 function formatearFecha(fecha) {
 
+    console.log("Fecha recibida:", fecha);
+
     const [anio, mes, dia] = fecha.split("-");
+
+    console.log(anio, mes, dia);
 
     const fechaLocal = new Date(anio, mes - 1, dia);
 
