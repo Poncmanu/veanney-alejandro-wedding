@@ -13,7 +13,11 @@ function obtenerCodigoInvitacion() {
 
 function formatearFecha(fecha) {
 
-    return new Date(fecha).toLocaleDateString("es-MX", {
+    const [anio, mes, dia] = fecha.split("-");
+
+    const fechaLocal = new Date(anio, mes - 1, dia);
+
+    return fechaLocal.toLocaleDateString("es-MX", {
         day: "2-digit",
         month: "long",
         year: "numeric"
