@@ -86,7 +86,11 @@ document.getElementById("rsvpMessage").innerHTML =
 
     personasActuales = personas;
     if (!errorPersonas) {
+    if (data.estado) {
+    mostrarCartaConfirmacion(personas);
+} else {
     mostrarInvitados(personas);
+}
 }
 } 
 
