@@ -8,7 +8,10 @@ let personasActuales = [];
 // Obtener el código de la URL
 function obtenerCodigoInvitacion() {
     const params = new URLSearchParams(window.location.search);
-    return params.get("codigo");
+
+    return params
+        .get("codigo")
+        ?.trim();
 }
 
 function formatearFecha(fecha) {
