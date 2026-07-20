@@ -198,8 +198,6 @@ const htmlNoAsisten = noAsistentes
 mensajePrincipal =
     "Será un gusto recibir a quienes podrán acompañarnos y agradecemos mucho haber recibido su respuesta.";
 
-        mensajeFinal =
-            "Nos hará muy felices compartir este día con quienes podrán acompañarnos.";
     }
 
     rsvpSection.innerHTML = `
@@ -245,7 +243,7 @@ mensajePrincipal =
 
     Si detectaste algún error o necesitas realizar algún cambio,
     comunícate con nosotros antes del
-    <strong>15 de agosto de 2026.</strong>
+    <strong>08 de agosto de 2026.</strong>
 
 </div>
 
