@@ -11,6 +11,16 @@ function obtenerCodigoInvitacion() {
     return params.get("codigo");
 }
 
+function formatearFecha(fecha) {
+
+    return new Date(fecha).toLocaleDateString("es-MX", {
+        day: "2-digit",
+        month: "long",
+        year: "numeric"
+    });
+
+}
+
 function mostrarInvitados(personas) {
 
     const guestList = document.getElementById("guestList");
@@ -80,6 +90,9 @@ document.getElementById("rsvpGreeting").textContent =
 
 document.getElementById("rsvpMessage").innerHTML =
     `Esta invitación cuenta con <strong>${data.lugares} lugar${data.lugares > 1 ? "es" : ""} reservado${data.lugares > 1 ? "s" : ""}.</strong>`;
+
+    document.getElementById("confirmationDeadline").textContent =
+    formatearFecha(data.fecha_limite_confirmacion);
 
     const { data: personas, error: errorPersonas } = await supabaseClient
         .from("personas")
