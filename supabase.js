@@ -199,12 +199,14 @@ const htmlNoAsisten = noAsistentes
 
         mensajeFinal = "";
 
-    } else {
+} else {
 
-mensajePrincipal =
-    "Será un gusto recibir a quienes podrán acompañarnos y agradecemos mucho haber recibido su respuesta.";
+    mensajePrincipal =
+        "Será un gusto recibir a quienes podrán acompañarnos y agradecemos mucho haber recibido su respuesta.";
 
-    }
+    mensajeFinal =
+        "En las próximas semanas nos pondremos en contacto con ustedes para hacerles llegar su pase de acceso y compartirles los últimos detalles de nuestra celebración.";
+}
 
     rsvpSection.innerHTML = `
         <div class="rsvp-card">
