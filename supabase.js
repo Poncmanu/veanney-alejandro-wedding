@@ -79,7 +79,7 @@ document.getElementById("rsvpGreeting").textContent =
     `¡Hola, ${data.nombre_invitacion}!`;
 
 document.getElementById("rsvpMessage").innerHTML =
-    `Tenemos reservados <strong>${data.lugares} lugares para ustedes.</strong>`;
+    `Esta invitación cuenta con <strong>${data.lugares} lugar${data.lugares > 1 ? "es" : ""} reservado${data.lugares > 1 ? "s" : ""}.</strong>`;
 
     const { data: personas, error: errorPersonas } = await supabaseClient
         .from("personas")
