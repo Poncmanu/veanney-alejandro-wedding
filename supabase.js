@@ -231,6 +231,12 @@ const htmlNoAsisten = noAsistentes
     "En las próximas semanas nos comunicaremos para hacer llegar el acceso al evento y compartir los últimos detalles de nuestra celebración.";
 }
 
+    const [anio, mes, dia] = invitacionActual.fecha_limite_confirmacion.split("-");
+
+const fechaLimite = new Date(anio, mes - 1, dia, 23, 59, 59);
+
+const mostrarNotaCambios = new Date() <= fechaLimite;
+
     rsvpSection.innerHTML = `
         <div class="rsvp-card">
 
@@ -266,6 +272,9 @@ const htmlNoAsisten = noAsistentes
                 : ""
             }
 
+${
+    mostrarNotaCambios
+        ? `
 <div class="confirm-note">
 
     <strong>¿Necesitas modificar tu respuesta?</strong>
@@ -277,6 +286,9 @@ const htmlNoAsisten = noAsistentes
     <strong>${formatearFecha(invitacionActual.fecha_limite_confirmacion)}</strong>
 
 </div>
+`
+        : ""
+}
 
 
         </div>
