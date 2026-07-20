@@ -163,16 +163,13 @@ function mostrarCartaConfirmacion(personas) {
     const asistentes = personas.filter(p => p.confirmado);
     const noAsistentes = personas.filter(p => !p.confirmado);
 
-    let htmlAsisten = "";
-    let htmlNoAsisten = "";
+   const htmlAsisten = asistentes
+    .map(p => `<div>${p.nombre}</div>`)
+    .join("");
 
-    asistentes.forEach(persona => {
-        htmlAsisten += `<li>${persona.nombre}</li>`;
-    });
-
-    noAsistentes.forEach(persona => {
-        htmlNoAsisten += `<li>${persona.nombre}</li>`;
-    });
+const htmlNoAsisten = noAsistentes
+    .map(p => `<div>${p.nombre}</div>`)
+    .join("");
 
     let mensajePrincipal = "";
     let mensajeFinal = "";
