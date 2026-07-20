@@ -156,6 +156,8 @@ if (persona) {
 
 function mostrarCartaConfirmacion(personas) {
 
+    console.log("VERSIÓN NUEVA DE LA CARTA");
+
     const rsvpSection = document.getElementById("rsvp");
 
     const asistentes = personas.filter(p => p.confirmado);
