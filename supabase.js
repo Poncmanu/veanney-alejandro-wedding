@@ -185,14 +185,14 @@ const htmlNoAsisten = noAsistentes
     } else if (asistentes.length === 0) {
 
         mensajePrincipal =
-            "Muchas gracias por responder nuestra invitación. Aunque en esta ocasión no puedan acompañarnos, les enviamos un fuerte abrazo y nuestros mejores deseos.";
+            "Aunque en esta ocasión no puedan acompañarnos, les enviamos un fuerte abrazo y nuestros mejores deseos.";
 
         mensajeFinal = "";
 
     } else {
 
 mensajePrincipal =
-    "Muchas gracias por responder nuestra invitación. Será un gusto recibir a quienes podrán acompañarnos y agradecemos mucho haber recibido su respuesta.";
+    "Será un gusto recibir a quienes podrán acompañarnos y agradecemos mucho haber recibido su respuesta.";
 
         mensajeFinal =
             "Nos hará muy felices compartir este día con quienes podrán acompañarnos.";
