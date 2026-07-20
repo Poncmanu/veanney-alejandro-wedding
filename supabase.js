@@ -167,12 +167,12 @@ function mostrarCartaConfirmacion(personas) {
     const asistentes = personas.filter(p => p.confirmado);
     const noAsistentes = personas.filter(p => !p.confirmado);
 
-   const htmlAsisten = asistentes
-    .map(p => `<div>${p.nombre}</div>`)
+const htmlAsisten = asistentes
+    .map(p => `<div style="color:white;font-size:18px;">${p.nombre}</div>`)
     .join("");
 
 const htmlNoAsisten = noAsistentes
-    .map(p => `<div>${p.nombre}</div>`)
+    .map(p => `<div style="color:white;font-size:18px;">${p.nombre}</div>`)
     .join("");
 
     let mensajePrincipal = "";
