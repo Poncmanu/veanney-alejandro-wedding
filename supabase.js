@@ -95,6 +95,8 @@ document.getElementById("rsvpGreeting").textContent =
 document.getElementById("rsvpMessage").innerHTML =
     `Esta invitación cuenta con <strong>${data.lugares} lugar${data.lugares > 1 ? "es" : ""} reservado${data.lugares > 1 ? "s" : ""}.</strong>`;
 
+    console.log("Fecha desde Supabase:", data.fecha_limite_confirmacion);
+
     document.getElementById("confirmationDeadline").textContent =
     formatearFecha(data.fecha_limite_confirmacion);
 
