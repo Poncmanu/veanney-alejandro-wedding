@@ -53,7 +53,7 @@ if (selected === 0) {
 
     confirmButton.disabled = false;
 
-    confirmButton.textContent = 'Confirmar respuesta';
+    confirmButton.textContent = 'Confirmar que no habrá asistencia';
 
     confirmButton.style.opacity = '1';
 
