@@ -1560,3 +1560,16 @@ COUNTDOWN
     font-size:1.1rem;
     font-weight:500;
 }
+#rsvpInstruction{
+
+    color: #d9d9d9;
+
+    font-size: 15px;
+
+    line-height: 1.5;
+
+    text-align: center;
+
+    margin: 18px 0 24px;
+
+}
