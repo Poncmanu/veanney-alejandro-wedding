@@ -1548,3 +1548,15 @@ COUNTDOWN
 .confirm-note strong{
     color:#c8a74e;
 }
+.guestNames{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin:20px 0 30px;
+}
+
+.guestNames div{
+    color:#ffffff !important;
+    font-size:1.1rem;
+    font-weight:500;
+}
