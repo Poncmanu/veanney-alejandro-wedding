@@ -52,9 +52,13 @@ document
 // Buscar la invitación
 async function cargarInvitacion() {
 
-    const codigo = obtenerCodigoInvitacion();
+const codigo = obtenerCodigoInvitacion();
 
-    console.log("Código recibido:", codigo);
+if (!codigo) {
+    return;
+}
+
+console.log("Código recibido:", codigo);
 
     const { data, error } = await supabaseClient
         .from("invitaciones")
@@ -67,7 +71,9 @@ console.log("Error:", error);
 
 if (error) return;
 
-    invitacionActual = data;
+document.getElementById("rsvp").style.display = "block";
+
+invitacionActual = data;
 
 document.getElementById("rsvpGreeting").textContent =
     `¡Hola, ${data.nombre_invitacion}!`;
