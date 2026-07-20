@@ -107,7 +107,7 @@ document.getElementById("rsvpMessage").innerHTML =
     const { data: personas, error: errorPersonas } = await supabaseClient
         .from("personas")
         .select("*")
-        .eq("invitacion_id", data.id)
+        .eq("invitacion_codigo", data.codigo)
         .order("orden");
 
     console.log("Personas:", personas);
