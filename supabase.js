@@ -249,11 +249,6 @@ mensajePrincipal =
 
 </div>
 
-            <p>
-                Con cariño,
-            </p>
-
-            <strong>Ivonne & Alejandro</strong>
 
         </div>
     `;
