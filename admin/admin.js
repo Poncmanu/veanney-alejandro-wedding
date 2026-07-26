@@ -1,21 +1,22 @@
-document.querySelectorAll(".metric-card").forEach(card=>{
+const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_ANON_KEY
+);
 
-    card.addEventListener("click",()=>{
+async function cargarResumen() {
 
-        document.getElementById("detailTitle").innerHTML=card.innerText;
+    const { data, error } = await supabaseClient
+        .from("vw_dashboard_resumen")
+        .select("*")
+        .single();
 
-        document.getElementById("detailContent").innerHTML=`
+    if (error) {
+        console.error(error);
+        return;
+    }
 
-        <p>Carlos Segura</p>
+    console.log(data);
 
-        <p>Adriana Villagómez</p>
+}
 
-        <p>Alejandro Ruiz</p>
-
-        <p>Ana Lilia Chávez</p>
-
-        `;
-
-    });
-
-});
+cargarResumen();
