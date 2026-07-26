@@ -24,6 +24,8 @@
             <p>Ivonne Veanney & Alejandro Ponce</p>
         </header>
 
+        <!-- ENVÍOS -->
+
         <section class="section">
 
             <h2>📤 Envíos</h2>
@@ -31,23 +33,25 @@
             <div class="metrics">
 
                 <div class="metric-card" id="totalInvitaciones">
-                    <div class="number">43</div>
+                    <div class="number" id="numTotalInvitaciones">0</div>
                     <div class="label">Total</div>
                 </div>
 
                 <div class="metric-card" id="enviadas">
-                    <div class="number">28</div>
+                    <div class="number" id="numEnviadas">0</div>
                     <div class="label">Enviadas</div>
                 </div>
 
                 <div class="metric-card" id="pendientesEnvio">
-                    <div class="number">15</div>
+                    <div class="number" id="numPendientesEnvio">0</div>
                     <div class="label">Pendientes</div>
                 </div>
 
             </div>
 
         </section>
+
+        <!-- CONFIRMACIONES -->
 
         <section class="section">
 
@@ -55,18 +59,18 @@
 
             <div class="metrics">
 
-                <div class="metric-card">
-                    <div class="number">10</div>
+                <div class="metric-card" id="confirmadas">
+                    <div class="number" id="numConfirmadas">0</div>
                     <div class="label">Respondieron</div>
                 </div>
 
-                <div class="metric-card">
-                    <div class="number">33</div>
+                <div class="metric-card" id="pendientesConfirmacion">
+                    <div class="number" id="numPendientesConfirmacion">0</div>
                     <div class="label">Pendientes</div>
                 </div>
 
-                <div class="metric-card">
-                    <div class="number">0</div>
+                <div class="metric-card" id="noAsistiran">
+                    <div class="number" id="numNoAsistiran">0</div>
                     <div class="label">No asistirán</div>
                 </div>
 
@@ -74,24 +78,26 @@
 
         </section>
 
+        <!-- ASISTENCIA -->
+
         <section class="section">
 
             <h2>👥 Asistencia</h2>
 
             <div class="metrics">
 
-                <div class="metric-card">
-                    <div class="number">109</div>
+                <div class="metric-card" id="personasInvitadas">
+                    <div class="number" id="numInvitados">0</div>
                     <div class="label">Invitados</div>
                 </div>
 
-                <div class="metric-card">
-                    <div class="number">22</div>
+                <div class="metric-card" id="personasConfirmadas">
+                    <div class="number" id="numPersonasConfirmadas">0</div>
                     <div class="label">Confirmados</div>
                 </div>
 
-                <div class="metric-card">
-                    <div class="number">87</div>
+                <div class="metric-card" id="personasPendientes">
+                    <div class="number" id="numPersonasPendientes">0</div>
                     <div class="label">Pendientes</div>
                 </div>
 
@@ -99,19 +105,21 @@
 
         </section>
 
+        <!-- MENÚS -->
+
         <section class="section">
 
             <h2>🍽 Menús</h2>
 
             <div class="metrics">
 
-                <div class="metric-card">
-                    <div class="number">20</div>
+                <div class="metric-card" id="banquete">
+                    <div class="number" id="numBanquete">0</div>
                     <div class="label">Banquete</div>
                 </div>
 
-                <div class="metric-card">
-                    <div class="number">2</div>
+                <div class="metric-card" id="infantil">
+                    <div class="number" id="numInfantil">0</div>
                     <div class="label">Infantil</div>
                 </div>
 
@@ -121,9 +129,13 @@
 
     </div>
 
+    <!-- PANEL LATERAL -->
+
     <aside class="details">
 
-        <h2 id="detailTitle">Selecciona un indicador</h2>
+        <h2 id="detailTitle">
+            Selecciona un indicador
+        </h2>
 
         <div id="detailContent">
             Aquí aparecerán los nombres.
