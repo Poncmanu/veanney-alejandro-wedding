@@ -17,6 +17,13 @@ async function cargarResumen() {
 
     console.log(data);
 
+    const { data: seguimiento, error: errorSeguimiento } = await supabaseClient
+    .from("vw_seguimiento_invitaciones")
+    .select("*")
+    .limit(1);
+
+console.log(seguimiento);
+
 document.getElementById("numTotalInvitaciones").textContent = data.total_invitaciones;
 
 document.getElementById("numEnviadas").textContent = data.enviadas;
