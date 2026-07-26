@@ -186,7 +186,10 @@ document.getElementById("banquete").onclick = () => {
 
     mostrarLista(
         "Menú Banquete",
-        personas.filter(p => p.tipo_menu === "BANQUETE")
+        personas.filter(p =>
+            p.confirmado &&
+            p.tipo_menu === "BANQUETE"
+        )
     );
 
 };
@@ -195,7 +198,10 @@ document.getElementById("infantil").onclick = () => {
 
     mostrarLista(
         "Menú Infantil",
-        personas.filter(p => p.tipo_menu === "INFANTIL")
+        personas.filter(p =>
+            p.confirmado &&
+            p.tipo_menu === "INFANTIL"
+        )
     );
 
 };
