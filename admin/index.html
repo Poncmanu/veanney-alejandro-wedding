@@ -1,34 +1,101 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Wedding Dashboard</title>
-
-    <link rel="stylesheet" href="admin.css">
-</head>
-
 <body>
 
-    <h1>Wedding Dashboard</h1>
+<div class="container">
 
-<div id="dashboard">
+    <header>
 
-    <div class="card">
+        <h1>Wedding Control Center</h1>
 
-        <h2>Invitaciones</h2>
+        <p>Ivonne Veanney & Alejandro Ponce</p>
 
-        <h1 id="totalInvitaciones">...</h1>
+    </header>
 
-    </div>
+    <main class="cards">
+
+        <div class="card">
+            <h2>📤 Envíos</h2>
+
+            <div class="metric">
+                <span class="value">43</span>
+                <span class="label">Total</span>
+            </div>
+
+            <div class="metric">
+                <span class="value">28</span>
+                <span class="label">Enviadas</span>
+            </div>
+
+            <div class="metric">
+                <span class="value">15</span>
+                <span class="label">Pendientes</span>
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h2>📩 Confirmaciones</h2>
+
+            <div class="metric">
+                <span class="value">10</span>
+                <span class="label">Respondieron</span>
+            </div>
+
+            <div class="metric">
+                <span class="value">33</span>
+                <span class="label">Pendientes</span>
+            </div>
+
+            <div class="metric">
+                <span class="value">0</span>
+                <span class="label">No asistirán</span>
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h2>👥 Asistencia</h2>
+
+            <div class="metric">
+                <span class="value">107</span>
+                <span class="label">Invitados</span>
+            </div>
+
+            <div class="metric">
+                <span class="value">22</span>
+                <span class="label">Confirmados</span>
+            </div>
+
+            <div class="metric">
+                <span class="value">85</span>
+                <span class="label">Pendientes</span>
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h2>🍽 Menús</h2>
+
+            <div class="metric">
+                <span class="value">20</span>
+                <span class="label">Banquete</span>
+            </div>
+
+            <div class="metric">
+                <span class="value">2</span>
+                <span class="label">Infantil</span>
+            </div>
+
+        </div>
+
+    </main>
 
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="../config.js"></script>
-<script src="../supabase.js"></script>
 <script src="admin.js"></script>
 
 </body>
-</html>
