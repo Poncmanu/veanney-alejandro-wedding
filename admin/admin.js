@@ -4,6 +4,7 @@ const supabaseClient = window.supabase.createClient(
 );
 
 let seguimiento = [];
+let personas = [];
 
 // ----------------------------
 // Cargar resumen
@@ -35,7 +36,6 @@ async function cargarResumen() {
 
     document.getElementById("numBanquete").textContent = data.banquete;
     document.getElementById("numInfantil").textContent = data.infantil;
-
 }
 
 // ----------------------------
@@ -48,93 +48,165 @@ async function cargarSeguimiento() {
         .from("vw_seguimiento_invitaciones")
         .select("*");
 
-    if(error){
+    if (error) {
         console.error(error);
         return;
     }
 
     seguimiento = data;
-
 }
 
-function mostrarLista(titulo, lista){
+// ----------------------------
+// Cargar personas
+// ----------------------------
+
+async function cargarPersonas() {
+
+    const { data, error } = await supabaseClient
+        .from("personas")
+        .select("*");
+
+    if (error) {
+        console.error(error);
+        return;
+    }
+
+    personas = data;
+}
+
+// ----------------------------
+// Mostrar panel derecho
+// ----------------------------
+
+function mostrarLista(titulo, lista) {
 
     document.getElementById("detailTitle").textContent =
-        titulo + " (" + lista.length + ")";
+        `${titulo} (${lista.length})`;
 
     let html = "";
 
-    lista.forEach(item=>{
+    lista.forEach(item => {
+
+        const nombre = item.nombre_invitacion ?? item.nombre;
+
+        let detalle = "";
+
+        if (item.personas_invitadas !== undefined) {
+            detalle = `👥 ${item.personas_invitadas} lugares`;
+        }
+
+        if (item.tipo_menu) {
+            detalle = `🍽 ${item.tipo_menu}`;
+        }
 
         html += `
             <div style="margin-bottom:18px;border-bottom:1px solid #333;padding-bottom:10px;">
-                <strong>${item.nombre_invitacion}</strong><br>
-                👥 ${item.personas_invitadas} lugares
+                <strong>${nombre}</strong><br>
+                ${detalle}
             </div>
         `;
 
     });
 
     document.getElementById("detailContent").innerHTML = html;
-
 }
 
 // ----------------------------
-// Eventos
+// Eventos - Invitaciones
 // ----------------------------
 
-document.getElementById("enviadas").onclick=()=>{
+document.getElementById("enviadas").onclick = () => {
 
     mostrarLista(
         "Invitaciones enviadas",
-        seguimiento.filter(x=>x.enviada)
+        seguimiento.filter(x => x.enviada)
     );
 
 };
 
-document.getElementById("pendientesEnvio").onclick=()=>{
+document.getElementById("pendientesEnvio").onclick = () => {
 
     mostrarLista(
         "Pendientes por enviar",
-        seguimiento.filter(x=>!x.enviada)
+        seguimiento.filter(x => !x.enviada)
     );
 
 };
 
-document.getElementById("confirmadas").onclick=()=>{
+document.getElementById("confirmadas").onclick = () => {
 
     mostrarLista(
         "Confirmadas",
-        seguimiento.filter(x=>x.confirmo)
+        seguimiento.filter(x => x.confirmo)
     );
 
 };
 
-document.getElementById("pendientesConfirmacion").onclick=()=>{
+document.getElementById("pendientesConfirmacion").onclick = () => {
 
     mostrarLista(
         "Pendientes por confirmar",
-        seguimiento.filter(x=>!x.confirmo)
+        seguimiento.filter(x => !x.confirmo)
     );
 
 };
 
-document.getElementById("noAsistiran").onclick=()=>{
+document.getElementById("noAsistiran").onclick = () => {
 
     mostrarLista(
         "No asistirán",
-        seguimiento.filter(x=>x.confirmo && x.personas_confirmadas==0)
+        seguimiento.filter(x => x.confirmo && x.personas_confirmadas === 0)
+    );
+
+};
+
+// ----------------------------
+// Eventos - Personas
+// ----------------------------
+
+document.getElementById("personasConfirmadas").onclick = () => {
+
+    mostrarLista(
+        "Personas confirmadas",
+        personas.filter(p => p.confirmado)
+    );
+
+};
+
+document.getElementById("personasPendientes").onclick = () => {
+
+    mostrarLista(
+        "Personas pendientes",
+        personas.filter(p => !p.confirmado)
+    );
+
+};
+
+document.getElementById("banquete").onclick = () => {
+
+    mostrarLista(
+        "Menú Banquete",
+        personas.filter(p => p.tipo_menu === "BANQUETE")
+    );
+
+};
+
+document.getElementById("infantil").onclick = () => {
+
+    mostrarLista(
+        "Menú Infantil",
+        personas.filter(p => p.tipo_menu === "INFANTIL")
     );
 
 };
 
 // ----------------------------
 
-async function iniciar(){
+async function iniciar() {
 
     await cargarResumen();
-
     await cargarSeguimiento();
+    await cargarPersonas();
 
 }
 
