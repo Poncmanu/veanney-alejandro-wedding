@@ -22,7 +22,7 @@ async function cargarResumen() {
     .select("*")
     .limit(1);
 
-console.log(seguimiento);
+console.log(Object.keys(seguimiento[0]));
 
 document.getElementById("numTotalInvitaciones").textContent = data.total_invitaciones;
 
