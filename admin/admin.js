@@ -153,9 +153,21 @@ document.getElementById("pendientesConfirmacion").onclick = () => {
 
 document.getElementById("noAsistiran").onclick = () => {
 
+    const lista = personas.filter(persona => {
+
+        const invitacion = seguimiento.find(
+            inv => inv.codigo === persona.invitacion_codigo
+        );
+
+        return invitacion &&
+               invitacion.estado === true &&
+               persona.confirmado === false;
+
+    });
+
     mostrarLista(
-        "No asistirán",
-        seguimiento.filter(x => x.confirmo && x.personas_confirmadas === 0)
+        "Personas que no asistirán",
+        lista
     );
 
 };
