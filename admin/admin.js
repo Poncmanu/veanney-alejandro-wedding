@@ -187,9 +187,20 @@ document.getElementById("personasConfirmadas").onclick = () => {
 
 document.getElementById("personasPendientes").onclick = () => {
 
+    const lista = personas.filter(persona => {
+
+        const invitacion = seguimiento.find(
+            inv => inv.codigo === persona.invitacion_codigo
+        );
+
+        return invitacion &&
+               invitacion.estado === false;
+
+    });
+
     mostrarLista(
         "Personas pendientes",
-        personas.filter(p => !p.confirmado)
+        lista
     );
 
 };
