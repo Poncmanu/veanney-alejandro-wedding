@@ -5,6 +5,7 @@ const supabaseClient = window.supabase.createClient(
 
 let seguimiento = [];
 let personas = [];
+let listaOriginal = [];
 let listaActual = [];
 
 // ----------------------------
@@ -79,8 +80,15 @@ async function cargarPersonas() {
 // Mostrar panel derecho
 // ----------------------------
 
-function mostrarLista(titulo, lista) {
+function mostrarLista(titulo, lista, guardarOriginal = true){
+
     listaActual = lista;
+
+    if (guardarOriginal){
+        listaOriginal = [...lista];
+    }
+
+    ...
 
     document.getElementById("detailTitle").textContent =
         `${titulo} (${lista.length})`;
@@ -256,14 +264,15 @@ document.getElementById("searchInput").addEventListener("input", function () {
     const texto = this.value.trim().toLowerCase();
 
     if (texto === "") {
-        mostrarLista(
-            document.getElementById("detailTitle").textContent.split(" (")[0],
-            listaActual
-        );
+mostrarLista(
+    document.getElementById("detailTitle").textContent.split(" (")[0],
+    listaOriginal,
+    false
+);
         return;
     }
 
-    const listaFiltrada = listaActual.filter(item => {
+    const listaFiltrada = listaOriginal.filter(item => {
 
         let textoBusqueda = "";
 
@@ -283,9 +292,10 @@ document.getElementById("searchInput").addEventListener("input", function () {
 
     });
 
-    mostrarLista(
-        document.getElementById("detailTitle").textContent.split(" (")[0],
-        listaFiltrada
-    );
+mostrarLista(
+    document.getElementById("detailTitle").textContent.split(" (")[0],
+    listaFiltrada,
+    false
+);
 
 });
