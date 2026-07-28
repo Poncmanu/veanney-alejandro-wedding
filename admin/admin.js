@@ -88,9 +88,7 @@ function mostrarLista(titulo, lista, guardarOriginal = true){
         listaOriginal = [...lista];
     }
 
-    ...
-
-    document.getElementById("detailTitle").textContent =
+        document.getElementById("detailTitle").textContent =
         `${titulo} (${lista.length})`;
 
     let html = "";
