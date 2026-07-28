@@ -131,3 +131,34 @@ body{
     color:white;
 
 }
+
+
+/* ===========================
+   BUSCADOR
+=========================== */
+
+.search-container{
+    margin:15px 0;
+}
+
+#searchInput{
+    width:100%;
+    padding:12px 14px;
+    border-radius:10px;
+    border:1px solid #3a3a3a;
+    background:#1e1e1e;
+    color:#fff;
+    font-size:15px;
+    outline:none;
+    transition:.2s;
+    box-sizing:border-box;
+}
+
+#searchInput::placeholder{
+    color:#999;
+}
+
+#searchInput:focus{
+    border-color:#d4af37;
+    box-shadow:0 0 8px rgba(212,175,55,.35);
+}
