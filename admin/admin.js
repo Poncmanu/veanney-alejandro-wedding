@@ -250,3 +250,42 @@ async function iniciar() {
 }
 
 iniciar();
+
+document.getElementById("searchInput").addEventListener("input", function () {
+
+    const texto = this.value.trim().toLowerCase();
+
+    if (texto === "") {
+        mostrarLista(
+            document.getElementById("detailTitle").textContent.split(" (")[0],
+            listaActual
+        );
+        return;
+    }
+
+    const listaFiltrada = listaActual.filter(item => {
+
+        let textoBusqueda = "";
+
+        if (item.nombre) {
+            textoBusqueda += item.nombre + " ";
+        }
+
+        if (item.nombre_invitacion) {
+            textoBusqueda += item.nombre_invitacion + " ";
+        }
+
+        if (item.codigo) {
+            textoBusqueda += item.codigo;
+        }
+
+        return textoBusqueda.toLowerCase().includes(texto);
+
+    });
+
+    mostrarLista(
+        document.getElementById("detailTitle").textContent.split(" (")[0],
+        listaFiltrada
+    );
+
+});
