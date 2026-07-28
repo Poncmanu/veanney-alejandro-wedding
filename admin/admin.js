@@ -95,9 +95,17 @@ function mostrarLista(titulo, lista) {
             detalle = `👥 ${item.personas_invitadas} lugares`;
         }
 
-        if (item.tipo_menu) {
-            detalle = `🍽 ${item.tipo_menu}`;
-        }
+if (item.tipo_menu) {
+
+    const invitacion = seguimiento.find(
+        inv => inv.codigo === item.invitacion_codigo
+    );
+
+    detalle = invitacion
+        ? `👨‍👩‍👧 ${invitacion.nombre_invitacion}`
+        : "";
+
+}
 
         html += `
             <div style="margin-bottom:18px;border-bottom:1px solid #333;padding-bottom:10px;">
