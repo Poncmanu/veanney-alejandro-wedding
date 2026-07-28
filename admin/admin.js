@@ -5,6 +5,7 @@ const supabaseClient = window.supabase.createClient(
 
 let seguimiento = [];
 let personas = [];
+let listaActual = [];
 
 // ----------------------------
 // Cargar resumen
@@ -79,6 +80,7 @@ async function cargarPersonas() {
 // ----------------------------
 
 function mostrarLista(titulo, lista) {
+    listaActual = lista;
 
     document.getElementById("detailTitle").textContent =
         `${titulo} (${lista.length})`;
